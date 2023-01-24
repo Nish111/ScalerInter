@@ -4,7 +4,7 @@ public class DivideBy2 {
 
 	public static int divBy2(int N) {
 		int count=0;
-		while(N/2 !=1) {
+		while(N !=1) {
 			count++;
 			N=N/2;
 		}
@@ -13,14 +13,14 @@ public class DivideBy2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		System.out.println(divBy2(5));
-		System.out.println(Math.ceil(Math.log(5)));
-		System.out.println(Math.floor(Math.log(5)));
+		System.out.println(Math.ceil(Math.log(5)/Math.log(2)));
+		System.out.println(Math.floor(Math.log(5)/Math.log(2)));
 		System.out.println(divBy2(7));
-		System.out.println(Math.ceil(Math.log(7)));
-		System.out.println(Math.floor(Math.log(7)));
+		System.out.println(Math.ceil(Math.log(7)/Math.log(2)));
+		System.out.println(Math.floor(Math.log(7)/Math.log(2)));
 		System.out.println(divBy2(8));
-		System.out.println(Math.ceil(Math.log(8)));
-		System.out.println(Math.floor(Math.log(8)));
+		System.out.println(Math.ceil(Math.log(8)/Math.log(2)));
+		System.out.println(Math.floor(Math.log(8)/Math.log(2)));
 	}
 /*
  * Let N be the number (N>1) that you want to divide. Say that you have to divide 
