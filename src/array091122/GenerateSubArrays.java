@@ -1,6 +1,7 @@
 package array091122;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.ListIterator;
 // https://www.scaler.com/academy/mentee-dashboard/class/40902/assignment/problems/26732/submissions
@@ -16,6 +17,7 @@ public class GenerateSubArrays {
 				list2D.add(i, list1D);
 			}
 		}
+		//Collections.sort(list2D.);
 		return list2D;
 	}
 	 public ArrayList<ArrayList<Integer>> solveScalerSol(ArrayList<Integer> A) {
@@ -44,8 +46,10 @@ public class GenerateSubArrays {
 				for (int k = i; k <= j; k++) {
 					temp.add(A[k]);
 				}
+				list2D.add(temp);
 			}
 		}
+		
 		
 		return B;
 	}
