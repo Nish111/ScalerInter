@@ -129,7 +129,14 @@ we need to check both neighbours on left and right */
             }
         }
         return res;
-}
+	}
+	public static void printArray(int[] B) {
+		for(int i=0; i<B.length;i++) {
+			System.out.print(B[i] + " ");
+		}
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		AlternatingSubarrays as = new AlternatingSubarrays();
@@ -139,18 +146,9 @@ we need to check both neighbours on left and right */
 		int[] D = as.solveVideo(C, 0); // 0 1 2 3 4 5 6
 		int[] E = {0, 0, 0, 1, 1, 0, 1};
 		int[] F = as.solveVideo(E, 1); // 5
-		for(int i=0; i<B.length;i++) {
-			System.out.print(B[i] + " ");
-		}
-		System.out.println();
-		for(int i=0; i<D.length;i++) {
-			System.out.print(D[i] + " ");
-		}
-		System.out.println();
-		for(int i=0; i<F.length;i++) {
-			System.out.print(F[i] + " ");
-		}
-		System.out.println();
+		printArray(B);
+		printArray(D);
+		printArray(F);
 	}
-
+	
 }
