@@ -10,6 +10,11 @@ public class Joesphus {
         }
         return pos;
     }
+	/*
+	 * We know 2's power then the person we start will be only 1, 
+	 * so to reach such condition, from 100 we need to kill 36 people, then 64 will remain and the one having sword will win
+So to kill 36 the sword will reach 2*36 +1 = 73 and so 73 will be alive
+	 */
 	public int solveScalerSol(int A) {
         int position = msbPosScalerSol(A);
         int j = (int)Math.pow(2, (position - 1));
@@ -37,6 +42,7 @@ public class Joesphus {
 		System.out.println(j.solveScalerSol(5));//3
 		System.out.println(j.solve(100));//73
 		System.out.println(j.solveScalerSol(100));//73
+		System.out.println(j.solveClass(100)); // 73
 	}
 
 }
