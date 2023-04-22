@@ -1,5 +1,5 @@
 package array161122;
-
+// https://www.scaler.com/academy/mentee-dashboard/class/40893/assignment/problems/12828?navref=cl_tt_nv
 public class SpecialIndex {
 	private int cntIndexesToMakeBalanceScalerSol(int arr[], int n) {
 		if (n == 1) {
@@ -74,12 +74,8 @@ public class SpecialIndex {
 				oddPf[i] = oddPf[i - 1] + A[i];
 			}
 		}
-		for (int i = 0; i < A.length; i++)
-			System.out.print(evenPf[i] + " ");
-		System.out.println();
-		for (int i = 0; i < A.length; i++)
-			System.out.print(oddPf[i] + " ");
-		System.out.println();
+		printArray(A, evenPf);
+		printArray(A, oddPf);
 		// checking sum now for special index
 		int sumOdd = 0;
 		int sumEven = 0;
@@ -100,10 +96,16 @@ public class SpecialIndex {
 		return specialIndex;
 	}
 
+	private static void printArray(int[] A, int[] evenPf) {
+		for (int i = 0; i < A.length; i++)
+			System.out.print(evenPf[i] + " ");
+		System.out.println();
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] A = { 4, 3, 2, 7, 6, -2 };
-		System.out.println(specialIndex(A));// 2
+		System.out.println(specialIndex(A));// 2 2 special indices
 	}
 
 }
