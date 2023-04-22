@@ -1,4 +1,4 @@
-package array111122;
+package matrices2D111122;
 
 import java.util.ArrayList;
 
