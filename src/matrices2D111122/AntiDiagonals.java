@@ -28,7 +28,7 @@ public class AntiDiagonals {
 		int m = A[0].length;
 		int[][] B = new int[2 * n - 1][m];
 		for (int i = 0; i < m; i++) {
-			int row = 0;
+			int row = 0; // initializing to 0 and i
 			int col = i;
 			int j = 0;
 			while (row < n && col >= 0) {
@@ -53,20 +53,42 @@ public class AntiDiagonals {
 		}
 		return B;
 	}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		AntiDiagonals ad = new AntiDiagonals();
-		int[][] A = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-		int[][] B = ad.diagonal(A);
-		System.out.println();
+	public int[][] diagonalAgain(int[][] A) { // working
+		// in this approach will just print the final columns 0 to m
+		int row=0, col=0;
+		int n=A.length, m=A[0].length;
+		int[][] B = new int[2*n-1][m];
+		int count=0;
+		while(count<m) {
+			row=count; col=0;
+			for(int i=count; i<B.length-count; i++) {
+				B[i][count]=A[row][col];
+				if(col==n-count-1) row++;
+				if(col<n-count-1) col++;
+				//printArray(B);
+			}
+			count++;
+		}
+		
+		return B;
+	}
+	private void printArray(int[][] B) {
 		for (int i = 0; i < B.length; i++) {
 			for (int j = 0; j < B[0].length; j++) {
 				System.out.print(B[i][j] + " ");
 			}
 			System.out.println();
 		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AntiDiagonals ad = new AntiDiagonals();
+		int[][] A = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+		int[][] B = ad.diagonal(A);
 		System.out.println();
+		ad.printArray(B);
+		int[][] C = ad.diagonalAgain(A);
+		ad.printArray(C);
 
 	}
 /*
@@ -78,4 +100,5 @@ Output Format
 Return a 2D integer array of size (2 * N-1) * N, representing the anti-diagonals of input array A.
 The vacant spaces in the grid should be assigned to 0.
  */
+	
 }
