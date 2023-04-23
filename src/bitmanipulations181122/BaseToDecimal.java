@@ -1,4 +1,4 @@
-package array181122;
+package bitmanipulations181122;
 
 public class BaseToDecimal {
 	 public int solve(int A, int B) {
