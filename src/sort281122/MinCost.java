@@ -22,7 +22,7 @@ public class MinCost {
 		for(int i=0; i<A.length; i++) {
 			total_sum += A[i];
 		}
-		//System.out.println(total_sum);
+		System.out.println(total_sum);
 		/*
 		 * for(int j=0; j<A.length; j++) { System.out.print(A[j] + " "); }
 		 */
