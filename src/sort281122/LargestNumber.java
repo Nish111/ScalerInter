@@ -50,7 +50,7 @@ public class LargestNumber { // check once
 				return String.valueOf(a + b).compareTo(String.valueOf(b + a));
 			}
 		});
-
+		printArray(arr);
 		for (int i = A.length - 1; i >= 0; i--) {
 			sb.append(arr[i]);
 		}
@@ -58,6 +58,12 @@ public class LargestNumber { // check once
 			return "0";
 		}
 		return sb.toString();
+	}
+	private void printArray(String[] arr) {
+		// TODO Auto-generated method stub
+		for(int i=0; i<arr.length; i++)
+			System.out.print(arr[i] +" ");
+		System.out.println();
 	}
 	public String largestNumber(final int[] A) { // not working
 		ArrayList<Integer> ar = new ArrayList<Integer>();
