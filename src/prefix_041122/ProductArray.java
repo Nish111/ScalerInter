@@ -1,4 +1,4 @@
-package array041122;
+package prefix_041122;
 // https://www.scaler.com/academy/mentee-dashboard/class/40897/homework/problems/4103/submissions
 public class ProductArray { // bookmarked
 /*
@@ -16,6 +16,18 @@ values. Solve it without using the division operator.
 		}
 		for(int i=0; i<B.length;i++) {
 			B[i] =product/A[i];
+		}
+		return B;
+    }
+	public int[] solve2(int[] A) { // Solve it without using the division operator.
+		int B[] = new int[A.length];
+		for(int i=0; i<B.length; i++)
+			B[i]=1;
+		for(int i=0; i<A.length;i++) {
+			for(int j=0; j<A.length; j++) {
+				if(i!=j) B[i] *=A[j];
+			}
+			
 		}
 		return B;
     }
@@ -49,7 +61,7 @@ values. Solve it without using the division operator.
 		// TODO Auto-generated method stub
 		ProductArray pa = new ProductArray();
 		int[] A = {1, 2, 3, 4, 5};
-		int[] B = pa.solve(A);
+		int[] B = pa.solve2(A);
 		for(int i=0; i<B.length; i++) {
 			System.out.print(B[i] + " ");
 		}
