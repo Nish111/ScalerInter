@@ -35,23 +35,23 @@ public class GenerateSubArrays {
 	        return ans;
 	    }
 	public int[][] solve(int[] A) { // not able to solve using only arrays
-		int newLen = A.length * (A.length + 1) / 2;
-		int[][] B = new int[newLen][A.length];
+		int n = A.length;
+        int[][] subarrays = new int[n * (n + 1) / 2][];
 
-		ArrayList<ArrayList<Integer>> list2D = new ArrayList<ArrayList<Integer>>();
-		ArrayList<Integer> list1D = new ArrayList<Integer>();
-		for (int i = 0; i < A.length; i++) {
-			for (int j = i; j < A.length; j++) {
-				ArrayList<Integer> temp = new ArrayList<Integer>();
-				for (int k = i; k <= j; k++) {
-					temp.add(A[k]);
-				}
-				list2D.add(temp);
-			}
-		}
-		
-		
-		return B;
+        int index = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                int subarraySize = j - i + 1;
+                int[] subarray = new int[subarraySize];
+                for (int k = i; k <= j; k++) {
+                    subarray[k - i] = A[k];
+                }
+                subarrays[index++] = subarray;
+            }
+        }
+
+        return subarrays;
+
 	}
 
 	public static void main(String[] args) {
@@ -67,10 +67,14 @@ public class GenerateSubArrays {
 		while(E.hasNext()) {
 			System.out.println(E.next());
 		}
-		int[][] B = gsa.solve(A); // not working
+		int[][] B = gsa.solve(A); // working now
 		
-		for (int i = 0; i < B.length; i++) { for (int j = 0; j < B[i].length; j++) {
-		System.out.println(B[i][j]); } }
+		for (int i = 0; i < B.length; i++) { 
+			for (int j = 0; j < B[i].length; j++) {
+				System.out.print(B[i][j]+" "); 
+			}
+			System.out.println();
+		}
 		
 	}
 
