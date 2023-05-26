@@ -1,4 +1,4 @@
-package array121122;
+package slidingwindow121122;
 
 public class SubArraySumLength {
 	 public int solve(int[] A, int B, int C) {
@@ -20,6 +20,19 @@ public class SubArraySumLength {
 		}
 		return 0;
 	}
+	 public int solveScalerSol(int[] A, int B, int C) {
+	        int sum = 0;
+	    	for(int i = 0 ; i < A.length ; i++){
+	    		sum += A[i];
+	    		if(i >= B){
+	    		    sum -= A[i - B];
+	    		}
+	    		if(sum == C && i >= B - 1){
+	    		    return 1;
+	    		}
+	    	}
+	    	return 0;
+	    }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		SubArraySumLength ssl = new SubArraySumLength();
@@ -28,7 +41,7 @@ public class SubArraySumLength {
 		int[] B = {4, 2, 2};
 		System.out.println(ssl.solve(B, 2, 8));// 0
 		int[] C = {4, 3, 2, 6};
-		System.out.println(ssl.solve(A, 2, 5));
+		System.out.println(ssl.solve(C, 2, 5)); // 1
 
 	}
 
