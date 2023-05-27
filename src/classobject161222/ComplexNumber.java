@@ -15,6 +15,7 @@ public class ComplexNumber {
 			ComplexNumber cn = new ComplexNumber(this.real, this.imaginary);
 			cn.real = this.real+x.real;
 			cn.imaginary = this.imaginary+x.imaginary;
+			System.out.println(cn.real+" "+cn.imaginary);
 	        return cn;
 		}
 		
@@ -23,6 +24,7 @@ public class ComplexNumber {
 			ComplexNumber cn = new ComplexNumber(this.real, this.imaginary);
 			cn.real = this.real-x.real;
 			cn.imaginary = this.imaginary-x.imaginary;
+			System.out.println(cn.real+" "+cn.imaginary);
 	        return cn;
 		}
 			
@@ -31,16 +33,19 @@ public class ComplexNumber {
 			ComplexNumber cn = new ComplexNumber(this.real, this.imaginary);
 			cn.real = this.real*x.real -(this.imaginary*x.imaginary);
 			cn.imaginary = this.imaginary*x.real + this.real*x.imaginary;
+			System.out.println(cn.real+" "+cn.imaginary);
 	        return cn;
 		}
-		
+		// (a+ib)/(c+id) = (ac + bd)/(c2+d2) + (bc — ad)/(c2+d2)i 
 		ComplexNumber divide(ComplexNumber x){
 			// Complete the function
 			ComplexNumber cn = new ComplexNumber(this.real, this.imaginary);
 			float denom = (x.real*x.real + x.imaginary*x.imaginary);
-			System.out.println(this.real*x.real+this.imaginary*x.imaginary);
+			//System.out.println(this.real*x.real+this.imaginary*x.imaginary);
+			System.out.println("denom is "+denom);
 			cn.real = ((this.real*x.real+this.imaginary*x.imaginary)/denom);
 			cn.imaginary = ((this.imaginary*x.real - this.real*x.imaginary)/denom);
+			System.out.println(cn.real+" "+cn.imaginary);
 	        return cn;
 		}
 		int gcd(int A, int B)
@@ -51,10 +56,10 @@ public class ComplexNumber {
 	public static void main(String[] args) {
 		ComplexNumber a = new ComplexNumber(9, 6); // 10, 5
 		ComplexNumber b = new ComplexNumber(3, 3); // 2, 3
-		ComplexNumber c1 = a.add(b);
-		ComplexNumber c2 = a.subtract(b);
-		ComplexNumber c3 = a.multiply(b);
-		ComplexNumber c4 = a.divide(b);
+		ComplexNumber c1 = a.add(b); // 12 9
+		ComplexNumber c2 = a.subtract(b);// 6 6
+		ComplexNumber c3 = a.multiply(b); // 9 45
+		ComplexNumber c4 = a.divide(b); // 2.5 -0.5
 		System.out.println(c4.real);
 		System.out.println(c4.imaginary);
 	}
