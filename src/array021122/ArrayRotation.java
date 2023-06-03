@@ -32,9 +32,9 @@ public class ArrayRotation {
 		}
 	}
 /*
- * 0----------B-----A
- * B----------0-----A
- * B----------A-----0
- * 0------A---------B -> thus getting rotation
+ * 0----------B-1B-----A
+ * B-1----------0B-----A
+ * B-1----------0A-----B
+ * B-------A0--------B-1 -> thus getting rotation
  */
 }
