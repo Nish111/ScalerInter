@@ -3,6 +3,19 @@ package array091122;
 import java.util.ArrayList;
 // https://www.scaler.com/academy/mentee-dashboard/class/40902/assignment/problems/16121/submissions
 public class MaximumSubArray {
+	public int maxSubArray(int[] nums) { // LeetCode easy
+        int sum=0, max = Integer.MIN_VALUE;
+        int i=0, j=0;
+        while(j<nums.length){
+            if(sum<0 && nums[j]>=sum){
+                sum=0; i=j;
+            }
+            sum+=nums[j];
+            max = Math.max(max, sum);
+            j++;
+        }
+        return max;
+    }
 	public int maxSubarray(int A, int B, int[] C) {
 		int res = 0;
 		int s = 0;
@@ -24,7 +37,7 @@ public class MaximumSubArray {
 		if (max != 0) return max;
 		else return res;
 	}
-	  public int maxSubarrayMine(int A, int B, int[] C) {
+	  public int maxSubarrayMine(int A, int B, int[] C) { // O(N2)
 		  int sum=0, max =0;
 		  if(A==1) {
 			  if(C[0]<=B) return C[0];
@@ -65,6 +78,8 @@ public class MaximumSubArray {
 		System.out.println(msa.maxSubarrayMine(3, 1, A)); //0
 		System.out.println(msa.maxSubarrayMine(1, 12, B));//0
 		System.out.println(msa.maxSubarrayMine(1, 12, Z));//12
+		int[] D = {3,2,-6, 8,2,9,4};
+		System.out.println(msa.maxSubarrayMine(7, 100, D));// 23
 	}
 
 }
