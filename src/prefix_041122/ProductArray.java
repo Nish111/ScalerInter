@@ -19,7 +19,7 @@ values. Solve it without using the division operator.
 		}
 		return B;
     }
-	public int[] solve2(int[] A) { // Solve it without using the division operator.
+	public int[] solve2(int[] A) { // Solve it without using the division operator but O(N2)
 		int B[] = new int[A.length];
 		for(int i=0; i<B.length; i++)
 			B[i]=1;
@@ -31,7 +31,7 @@ values. Solve it without using the division operator.
 		}
 		return B;
     }
-	public int[] solveScalerSol(int[] A) {// check once
+	public int[] solveScalerSol(int[] A) {// done O(N)
         int n = A.length;
         int[] pref = new int[n];
         int[] suff = new int[n];
