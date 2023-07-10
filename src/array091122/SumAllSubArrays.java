@@ -1,4 +1,7 @@
 package array091122;
+
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 // https://www.scaler.com/academy/mentee-dashboard/class/40902/assignment/problems/14363/submissions
 public class SumAllSubArrays {
 /*
@@ -21,6 +24,19 @@ A subarray sum denotes the sum of all the elements of that subarray
 		}
 		return total_sum;
 	}
+	 public long subarraySumJ8(int[] A) { // working for Scaler
+	        int n = A.length;
+			/*for (int i = 0; i < n; i++) {
+				sum += (long)(i+1)*(n-i)*A[i];
+			}
+			return sum;*/
+			/*
+			 * sum = IntStream.range(0, n) .mapToLong(i -> (long) (i + 1) * (n - i) * A[i])
+			 * .sum();
+			 */
+	    //return (long) IntStream.range(0, n).mapToDouble(i -> (i+1)*(n-i)*A[i]).sum();
+	    return 0;
+	    }
 	public static long subarraySum(int[] A) { // contribution technique
         int n = A.length;
 		long sum = 0;
