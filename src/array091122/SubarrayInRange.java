@@ -16,6 +16,7 @@ public class SubarrayInRange {
 			i++;
 		}
         return test;
+        //return Arrays.copyOfRange(A, B, C + 1);
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
