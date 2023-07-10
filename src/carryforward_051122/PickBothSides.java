@@ -1,4 +1,4 @@
-package array051122;
+package carryforward_051122;
 // https://www.scaler.com/academy/mentee-dashboard/class/40896/homework/problems/9900/submissions
 public class PickBothSides {
 	public int solve(int[] A, int B) {// Perfectly working and using 2 prefix sum arrays
@@ -11,6 +11,8 @@ public class PickBothSides {
 			leftprefix[i] = leftprefix[i-1]+ A[i];
 			rightprefix[i] = rightprefix[i-1]+ A[A.length-i-1];
 		}
+		printArray(leftprefix);
+		printArray(rightprefix);
 		//sum = leftprefix[B - 1];
 		/*
 		 System.out.println("Printing left"); for(int z=0; z<leftprefix.length; z++) {
@@ -22,6 +24,13 @@ public class PickBothSides {
 		 * if(B==1) { if(leftprefix[B-1]> rightprefix[B-1]) { sum = leftprefix[B-1]; }
 		 * else { sum = rightprefix[B-1]; } }
 		 */
+		 if(B==1) {
+			if(leftprefix[B-1]> rightprefix[B-1]) {
+				sum = leftprefix[B-1];
+			} else {
+				sum = rightprefix[B-1];
+			}
+		}
 		if(leftprefix[B-1]> rightprefix[B-1]) {
 			sum = leftprefix[B-1];
 		} else {
@@ -32,11 +41,18 @@ public class PickBothSides {
 		for(int k=1; k<B; k++) {
 			temp = leftprefix[B-k-1];
 			trial = rightprefix[k-1];
+			//System.out.println(temp+" "+trial+" "+k);
 			if(temp + trial >sum) {
 				sum = temp + trial;
+				//System.out.println(k);
 			}
 		}
 		return sum;
+	}
+	public void printArray(int[] A) {
+		for(int i=0; i<A.length; i++)
+			System.out.print(A[i] +" ");
+		System.out.println();
 	}
 	public int solveHis(int[] A, int B) {
 		int[] pf = new int[A.length + 1];
@@ -97,10 +113,11 @@ public class PickBothSides {
 		// TODO Auto-generated method stub
 		PickBothSides pbs = new PickBothSides();
 		int[] A = { 5, -2, 3, 1, 2 };
-		System.out.println(pbs.solve(A, 3));// 5
+		pbs.printArray(A);
+		System.out.println(pbs.solve(A, 3));// 8
 		System.out.println(pbs.solveHis(A, 3)); // 8
 		int[] B = { 1, 2 };
-		System.out.println(pbs.solve(B, 1)); // 1
+		System.out.println(pbs.solve(B, 1)); // 2
 		System.out.println(pbs.solveHis(B, 1)); // 2
 	}
 
