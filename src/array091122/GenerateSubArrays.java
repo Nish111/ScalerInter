@@ -34,7 +34,7 @@ public class GenerateSubArrays {
 	        }
 	        return ans;
 	    }
-	public int[][] solve(int[] A) { // not able to solve using only arrays
+	public int[][] solve(int[] A) { // using arrays
 		int n = A.length;
         int[][] subarrays = new int[n * (n + 1) / 2][];
 
