@@ -1,4 +1,7 @@
 package array021122;
+
+import java.util.Arrays;
+
 // https://www.scaler.com/academy/mentee-dashboard/class/40901/homework/problems/9003?navref=cl_tt_nv
 public class TimeToEquality {
 	/*
@@ -7,7 +10,7 @@ public class TimeToEquality {
 Find the minimum time in seconds to make all elements of the array equal.
 	 */
 	public int solve(int[] A) {
-        int max = Integer.MIN_VALUE;
+       /* int max = Integer.MIN_VALUE;
         int count=0;
         for(int i=0; i<A.length; i++){
             if(A[i]>max){
@@ -17,7 +20,12 @@ Find the minimum time in seconds to make all elements of the array equal.
         for(int i=0; i<A.length; i++){
             count += (max-A[i]);
         }
-        return count;
+        return count; */
+        int max = Arrays.stream(A).max().orElse(Integer.MIN_VALUE);
+        
+        return Arrays.stream(A)
+                     .map(value -> max - value)
+                     .sum();
     }
 	public int solveScalersol(int[] A) {
         int n=A.length;
