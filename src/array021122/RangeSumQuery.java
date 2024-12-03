@@ -1,6 +1,9 @@
 package array021122;
+
+import java.util.Arrays;
+
 // https://www.scaler.com/academy/mentee-dashboard/class/40901/homework/problems/27366?navref=cl_tt_nv
-public class RandomSumQuery { //  Range Sum Query - II
+public class RangeSumQuery { //  Range Sum Query - II // previously called RandomSumquery
 /*
  * You are given an integer array A of length N.
 You are also given a 2D integer array B with dimensions M x 2, where each row denotes a [L, R] query.
@@ -14,7 +17,10 @@ More formally, find A[L] + A[L + 1] + A[L + 2] +... + A[R - 1] + A[R] for each q
         		C[i] += A[j-1];
         	}
         }
-        return C;
+       // return C;
+        return Arrays.stream(B)
+                .mapToInt(range -> Arrays.stream(A, range[0], range[1] + 1).sum())
+                .toArray();
     }
 	 public int[] solveScalerSol(int[] A, int[][] B) {
 	        int[] ans = new int[B.length];
@@ -71,7 +77,7 @@ More formally, find A[L] + A[L + 1] + A[L + 2] +... + A[R - 1] + A[R] for each q
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		RandomSumQuery rsq = new RandomSumQuery();
+		RangeSumQuery rsq = new RangeSumQuery();
 		int[] A = {1, 2, 3, 4, 5};
 		int[][] B = {{0,3}, {1,2}};
 		int[][] C = {{1,4}, {2,3}};

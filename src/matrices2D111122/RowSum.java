@@ -1,7 +1,16 @@
-package array111122;
+package matrices2D111122;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
+// https://www.scaler.com/academy/mentee-dashboard/class/40895/assignment/problems/11437/submissions
 public class RowSum {
-	public int[] solveSclaerSol(int[][] A) {
+	public int[] java8(int[][] A) { // java 8
+        return Arrays.stream(A)
+                .mapToInt(row -> IntStream.of(row).sum())
+                .toArray();
+	}
+	public int[] solveScalarSol(int[][] A) {
         int n = A.length, m = A[0].length;
         int ans[] = new int[n];
         for(int i = 0; i < n; i++){
@@ -26,6 +35,15 @@ public class RowSum {
 			}
 	        return B;
     }
+	public int[] solve2(int[][] A) {
+	       int[] B = new int[A.length];
+	       for(int i=0; i<A.length; i++) {
+				for(int j=0; j<A[0].length; j++) {
+					B[i] +=A[i][j];
+				}
+			}
+	        return B;
+ }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		RowSum rs = new RowSum();
@@ -33,6 +51,10 @@ public class RowSum {
 		int []B = rs.solve(mat);
 		for(int i=0; i<B.length; i++) {
 			System.out.println(B[i]);
+		}
+		int[] C = rs.java8(mat);
+		for(int i=0; i<C.length; i++) {
+			System.out.println(C[i]);
 		}
 	}
 
